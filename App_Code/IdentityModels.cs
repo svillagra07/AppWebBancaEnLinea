@@ -3,9 +3,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System.Web;
 using System;
-using WebSite1;
+using AppWebBancaEnLinea;
 
-namespace WebSite1
+namespace AppWebBancaEnLinea
 {
     // Para agregar datos del usuario, agregue más propiedades a su clase de usuario. Visite http://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
@@ -30,7 +30,7 @@ namespace WebSite1
     }
 }
 
-namespace WebSite1
+namespace AppWebBancaEnLinea
 {
     public static class IdentityHelper
     {

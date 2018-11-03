@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-using WebSite1;
+using AppWebBancaEnLinea;
 
 public partial class OpenAuthProviders : System.Web.UI.UserControl
 {

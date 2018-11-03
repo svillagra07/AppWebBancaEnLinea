@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 
-namespace WebSite1
+namespace AppWebBancaEnLinea
 {
     public partial class Startup {
 
