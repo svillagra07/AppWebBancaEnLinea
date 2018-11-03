@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,7 @@ public class VariablesGlobales
     public static string CodigoUsuario { get; set; }
     public static string NombreUsuario { get; set; }
     public static string EmailUsuario { get; set; }
-    public static AppUsuario UsuarioActual { get; set; }
+    public static SecurityToken Token { get; set; }
 
     public VariablesGlobales()
     {

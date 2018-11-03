@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" Async="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -87,7 +87,7 @@ span.psw {
     <asp:TextBox Placeholder="Ingrese su password" runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="El campo de password es obligatorio." />
         
-    <asp:Button type="button" CssClass="button" ID="btnLogin"  runat="server" Text="Ingresar"/> 
+    <asp:Button type="button" CssClass="button" ID="btnLogin" OnClick="btnLogin_Click"  runat="server" Text="Ingresar"/> 
     <asp:Button type="button" CssClass="cancelbtn" ID="btnCancelar"  runat="server" Text="Cancelar" />
 
       <asp:PlaceHolder runat="server" ID="ErrorMessage"  Visible="false">

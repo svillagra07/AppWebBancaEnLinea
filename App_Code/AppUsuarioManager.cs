@@ -19,6 +19,7 @@ public class AppUsuarioManager
         LoginRequest login = new LoginRequest() { Username = username, Password = password };
 
         HttpClient client = new HttpClient();
+
         var response = await client.PostAsync(UrlAuthenticate,
             new StringContent(JsonConvert.SerializeObject(login),
             Encoding.UTF8, "application/json"));

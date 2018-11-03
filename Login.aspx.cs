@@ -2,13 +2,35 @@
 using System.Collections.Generic;
 //using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+    }
+    async protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        if (IsValid)
+        {
+            var manager = new AppUsuarioManager();
+            string token = await manager.Validar(UserName.Text, Password.Text);
+            if (!string.IsNullOrEmpty(token))
+            {
+                VariablesGlobales.AuthorizationKey = token;
+             
+                var jwthandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+                VariablesGlobales.Token = jwthandler.ReadToken(token);
 
+                FormsAuthentication.RedirectFromLoginPage(UserName.Text, Persist.Checked);
+            }
+            else
+            {
+                FailureText.Text = "Credenciales inválidas.";
+                ErrorMessage.Visible = true;
+            }
+
+        }
     }
 }
