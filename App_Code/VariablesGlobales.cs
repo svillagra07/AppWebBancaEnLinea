@@ -15,6 +15,8 @@ public class VariablesGlobales
     public static string NombreUsuario { get; set; }
     public static string EmailUsuario { get; set; }
     public static SecurityToken Token { get; set; }
+    public static EstadoSesion EstadoSesionActual { get; set; }
+    public static Cliente clienteActual { get; set; }
 
     public VariablesGlobales()
     {

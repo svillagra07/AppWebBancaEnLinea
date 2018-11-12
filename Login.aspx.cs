@@ -5,8 +5,11 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 public partial class Login : System.Web.UI.Page
 {
+    ClientesManager clientesManager = new ClientesManager();
+
     protected void Page_Load(object sender, EventArgs e)
     {
     }
@@ -23,6 +26,8 @@ public partial class Login : System.Web.UI.Page
                 var jwthandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
                 VariablesGlobales.Token = jwthandler.ReadToken(token);
 
+                VariablesGlobales.clienteActual = await clientesManager.GetCliente(0, UserName.Text);
+                VariablesGlobales.EstadoSesionActual = EstadoSesion.Activa;
                 FormsAuthentication.RedirectFromLoginPage(UserName.Text, Persist.Checked);
             }
             else

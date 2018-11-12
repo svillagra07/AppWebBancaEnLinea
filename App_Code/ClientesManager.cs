@@ -6,13 +6,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Threading.Tasks;
+using System.Text;
 
 /// <summary>
 /// Descripción breve de ClientesManager
 /// </summary>
 public class ClientesManager
 {
-    const string Url = "http://localhost/WebApiJWT/api/cliente/"; // URL del Servicio RESTful
+    const string Url = "http://localhost:49220/api/cliente/"; // URL del Servicio RESTful
+    const string UrlObtener = "http://localhost:49220/api/cliente/obtener/"; // URL del Servicio RESTful
 
     public ClientesManager()
     {
@@ -39,12 +41,22 @@ public class ClientesManager
 
 
 
-    public async Task<Cliente> GetCliente(string id)
+    public async Task<Cliente> GetCliente(int cli_cod_cliente, string username)
     {
+        ClienteRequest clienteRequest = new ClienteRequest()
+        {
+            Cli_cod_cliente = cli_cod_cliente,
+            Username = username
+        };
+
 
         HttpClient client = GetClient();
-        var uri = new Uri(string.Format(Url + "{0}", id));
-        string result = await client.GetStringAsync(uri);
-        return JsonConvert.DeserializeObject<Cliente>(result);
+        var response = await client.PostAsync(UrlObtener,
+            new StringContent(
+                JsonConvert.SerializeObject(clienteRequest),
+                Encoding.UTF8, "application/json"));
+        return JsonConvert.DeserializeObject<Cliente>(
+            await response.Content.ReadAsStringAsync());
+
     }
 }

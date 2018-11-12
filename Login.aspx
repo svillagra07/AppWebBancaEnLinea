@@ -79,6 +79,9 @@ span.psw {
 </head>
 <body>
     <form id="form1" runat="server">
+         <div class="imgcontainer">
+    <img src="utn.png" class="avatar">
+  </div>
   <div class="container">
     <label for="uname"><b>Ingrese sus credenciales</b></label>
     <asp:TextBox Placeholder="Ingrese su usuario"  runat="server" ID="UserName" CssClass="form-control" />
@@ -95,7 +98,7 @@ span.psw {
                             <asp:Literal runat="server"  ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-
+      <%--  --%>
     <label>
        <asp:CheckBox ID="Persist" runat="server" Text ="Recordarme" />
     </label>

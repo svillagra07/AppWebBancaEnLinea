@@ -8,8 +8,21 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : Page
 {
+    protected override void OnInit(EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetNoStore();
+        Response.Cache.SetExpires(DateTime.MinValue);
+
+        base.OnInit(e);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((VariablesGlobales.EstadoSesionActual != EstadoSesion.Activa))
+        {
+            Response.Redirect("~/Login.aspx");
+        }
 
     }
 
