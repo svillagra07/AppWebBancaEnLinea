@@ -200,24 +200,27 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
+    <form id="form1" runat="server">
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-     <a href="MenuPrincipal.aspx"></a>
+     <a href="MenuPrincipal.aspx">
+        </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-         <li><a href="Views/Noticias.aspx">Cuentas</a></li>
-        <li><a href="Views/Indicadores.aspx">Transferencias</a></li>
-        <li><a href="Views/Usuarios.aspx">Pagos</a></li>
-        <li><a href="Logout.aspx" >Cerrar sesión</a></li>
+         <li><a href="Cuentas.aspx">Cuentas</a></li>
+        <li><a href="Transferencias.aspx">Transferencias</a></li>
+        <li><a href="Pagos.aspx">Pagos</a></li>
+        <li><a href="../Logout.aspx" >Cerrar sesión</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-    <form id="form1" runat="server">
+      
     <div>
+
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

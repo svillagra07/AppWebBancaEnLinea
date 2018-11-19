@@ -29,9 +29,28 @@ public partial class Views_Cuentas : System.Web.UI.Page
         lblBienvenido.Text = "Bienvenido";
         IEnumerable<Cuenta> cuentas =
          await cuentasManager.ObtenerCuentasCliente(VariablesGlobales.clienteActual.cli_cod_cliente);
+
         grdCuentas.DataSource = cuentas.ToList();
         grdCuentas.DataBind();
-   
+        
     }
 
+
+
+    protected void grdCuentas_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if(grdCuentas.Columns.Count > 0)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                grdCuentas.Columns[0].HeaderText = "Cuenta";
+                grdCuentas.Columns[1].HeaderText = "Cliente";
+                grdCuentas.Columns[2].HeaderText = "Descripcion";
+                grdCuentas.Columns[3].HeaderText = "Saldo";
+                grdCuentas.Columns[4].HeaderText = "Estado";
+                grdCuentas.Columns[5].HeaderText = "Moneda";
+            }
+        }
+     
+    }
 }

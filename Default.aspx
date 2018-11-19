@@ -206,9 +206,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-         <li><a href="Views/Noticias.aspx">Cuentas</a></li>
-        <li><a href="Views/Indicadores.aspx">Transferencias</a></li>
-        <li><a href="Views/Usuarios.aspx">Pagos</a></li>
+         <li><a href="Views/Cuentas.aspx">Cuentas</a></li>
+        <li><a href="Views/Transferencias.aspx">Transferencias</a></li>
+        <li><a href="Views/Pagos.aspx">Pagos</a></li>
         <li><a href="Logout.aspx" >Cerrar sesión</a></li>
       </ul>
     </div>
